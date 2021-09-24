@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+if (typeof window !== 'undefined') {
+  require('@squidit/css/dist/js/squid.min.js')
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
