@@ -1,10 +1,11 @@
 import Header from "./components/Header";
 import List from "./components/List";
 import "./components/styles-overlay.css";
- import Waves from './assets/waves.svg'
+import Waves from './assets/waves.svg'
+
 function App() {
   return (
-    <div className="">
+    <div >
       <div className="spacer ">
         <Header />
         <List />
