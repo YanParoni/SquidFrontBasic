@@ -10,8 +10,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Prompt', sans-serif;
   color: white;
-  background: #202731;
+  background-color: aliceblue;
   overflow-x: hidden;
+  
 }
 
 code {

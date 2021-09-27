@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { getApi } from "../services/api";
 import InfluencerCard from "./InfluencerCard";
 import "./styles-overlay.css";
-
+import { Circle, Heart } from 'react-spinners-css';
 class List extends Component {
   constructor() {
     super();
@@ -10,6 +10,7 @@ class List extends Component {
     this.state = {
       data: [],
       showModal: false,
+      loading:true,
     };
     this.handleLeave = this.handleLeave.bind(this);
     this.handleMouseOver = this.handleMouseOver.bind(this);
@@ -39,17 +40,18 @@ class List extends Component {
 
   async getResponse() {
     const data = await getApi();
-    this.setState({ data });
+    this.setState({ data,loading:false });
   }
 
   render() {
     const { data } = this.state;
     return (
       <div>
+
         <div className="list ">
-          {data &&
+        {this.state.loading ? <Circle/> : data &&
             data.map(
-              ({ imagens, comentarios, link,_id, upvotes, criadoEm, usuario }) => {
+              ({ imagens, comentarios, link,_id, upvotes, criadoEm, usuario}) => {
                 return (
                   <InfluencerCard
                     key={_id}
@@ -65,6 +67,7 @@ class List extends Component {
                 );
               }
             )}
+          
         </div>
       </div>
     );
